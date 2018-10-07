@@ -2,7 +2,7 @@ import pandas as pd
 import numpy as np
 import time
 
-N = 1
+N = 10
 read_time = []
 write_time = []
 
