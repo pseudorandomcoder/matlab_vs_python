@@ -1,18 +1,17 @@
 import numpy as np
-import time
+from time import time
+from numpy.linalg import inv
 
-n = int(1e4)
+n = int(1e3)
 trials = int(1e1)
 run_time = []
 
 for i in range(trials):
-    A = np.ceil(100*np.random.rand(n, n))
-    while(np.linalg.det(A) == 0):
-        A = np.ceil(100*np.random.rand(n, n))
+    A = np.random.randint(1, 100, (n, n))
 
-    t1 = time.time()
-    inv_A = np.linalg.inv(A)
-    run_time.append(time.time() - t1)
+    t1 = time()
+    inv_A = inv(A)
+    run_time.append(time() - t1)
     print(f"{i+1} runs complete")
 
-print(np.mean(run_time))
+print(f"Average runtime: {np.mean(run_time)}")  
